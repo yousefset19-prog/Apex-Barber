@@ -324,23 +324,20 @@
 
         <p class="pay-section-label">PAYMENT METHOD</p>
         <div class="pay-choice-grid">
-                    <label class="pay-choice-card" id="choiceOnline">
+          <label class="pay-choice-card" id="choiceOnline">
             <input type="radio" name="payMethod" value="online">
             <i class="fas fa-credit-card"></i>
             <span class="pay-choice-title">Pay Online</span>
             <span class="pay-choice-sub">Cards, Apple Pay, Google Pay</span>
-          </label><label class="pay-choice-card active" id="choiceArrival">
+          </label>
+          <label class="pay-choice-card active" id="choiceArrival">
             <input type="radio" name="payMethod" value="arrival" checked>
             <i class="fas fa-store"></i>
             <span class="pay-choice-title">Pay on Arrival</span>
             <span class="pay-choice-sub">Cash or card at the shop</span>
           </label>
         </div>
-            <div id="payment-element"></div>
-            <div id="payment-error" class="pay-error" style="display:none"></div>
-          </div>
-          <button class="btn-place-order" id="placeOrder">PLACE ORDER — <span id="payBtnTotal">AED 0</span> &#8250;</button>
-        </div>
+
         <!-- Online payment section -->
         <div id="onlinePaySection" style="display:none">
           <div class="pay-method-box">
@@ -356,7 +353,6 @@
           </div>
           <button class="btn-place-order" id="placeOrder">PLACE ORDER &#8212; <span id="payBtnTotal">AED 0</span> &#8250;</button>
         </div>
-
 
         <!-- Pay on arrival section -->
         <div id="arrivalPaySection">
