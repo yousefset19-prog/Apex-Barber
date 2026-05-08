@@ -360,17 +360,15 @@ a { text-decoration: none; color: inherit; }
 .nav-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4rem 0 0;
+  padding: 0 4rem 0 8rem;
   height: 85px;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  position: relative;
 }
 
 .nav-logo {
   flex-shrink: 0;
-  margin-right: auto;
-  margin-left: -1.5rem;
 }
 
 .logo-text {
@@ -384,6 +382,9 @@ a { text-decoration: none; color: inherit; }
 .logo-accent { color: var(--gold); }
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
