@@ -360,11 +360,10 @@ a { text-decoration: none; color: inherit; }
 .nav-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4rem 0 8rem;
+  padding: 0 4rem 0 5rem;
   height: 85px;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .nav-logo {
@@ -382,11 +381,10 @@ a { text-decoration: none; color: inherit; }
 .logo-accent { color: var(--gold); }
 
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -396,6 +394,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: rgba(245,239,224,0.75);
   padding: 0.4rem 0.65rem;
   border-radius: 4px;
