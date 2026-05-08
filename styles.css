@@ -358,9 +358,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nav-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 3rem 0 8rem;
+  padding: 0 4rem 0 9rem;
   height: 85px;
   display: flex;
   align-items: center;
@@ -1077,10 +1075,12 @@ a { text-decoration: none; color: inherit; }
   .footer-newsletter { grid-column: span 3; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .nav-links, .nav-socials { display: none; }
   .hamburger { display: flex; }
+}
 
+@media (max-width: 900px) {
   .customers-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
