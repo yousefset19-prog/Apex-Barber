@@ -1,11 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "echo 'static site'",
-  "outputDirectory": ".",
   "installCommand": "npm install",
-  "functions": {
-    "api/checkout.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "buildCommand": "echo done",
+  "outputDirectory": "."
 }
