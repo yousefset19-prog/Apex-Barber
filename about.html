@@ -1,0 +1,577 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Apex Barbers</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <style>
+    /* ─── PAGE BANNER ─────────────────────────────── */
+    .page-banner {
+      margin-top: 85px;
+      background: #1a1a1a;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .page-banner-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-banner-label::before,
+    .page-banner-label::after {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .page-banner h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    /* ─── ABOUT STORY ─────────────────────────────── */
+    .about-story {
+      background: #ffffff;
+      padding: 7rem 2rem;
+      overflow: hidden;
+    }
+
+    .about-story-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-story-text .section-label { margin-bottom: 1.2rem; }
+
+    .about-story-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-story-text p {
+      font-size: 0.95rem;
+      color: rgba(26,26,26,0.6);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-story-image {
+      position: relative;
+    }
+
+    .about-story-image .image-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #f0ece3;
+      border: 2px dashed #d4c9b0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: rgba(26,26,26,0.3);
+    }
+
+    .about-story-image .image-placeholder i {
+      font-size: 2.5rem;
+    }
+
+    .about-story-image .image-placeholder span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .about-story-image .image-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      width: 120px;
+      height: 120px;
+      background: var(--gold);
+      z-index: -1;
+    }
+
+    /* ─── VALUES ──────────────────────────────────── */
+    .about-values {
+      background: #ffffff;
+      padding: 7rem 2rem;
+      border-top: 1px solid #e2e2e2;
+    }
+
+    .about-values-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-values-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .about-values-header .section-label {
+      justify-content: center;
+    }
+
+    .about-values-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-top: 0.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .value-card {
+      background: transparent;
+      padding: 3.5rem 2.5rem;
+      border: 1px solid #e2e2e2;
+      border-right: none;
+      transition: border-color 0.25s;
+    }
+
+    .value-card:last-child {
+      border-right: 1px solid #e2e2e2;
+    }
+
+    .value-card:hover {
+      border-color: var(--gold);
+    }
+
+    .value-card:not(:last-child):hover {
+      border-right: none;
+    }
+
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .value-icon i {
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .value-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.9rem;
+    }
+
+    .value-card p {
+      font-size: 0.875rem;
+      color: rgba(26,26,26,0.6);
+      line-height: 1.8;
+    }
+
+    /* ─── ABOUT RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      .about-story-inner {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .about-story-image .image-accent { display: none; }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-banner { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">APEX <span class="logo-accent">BARBERS</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" style="color: var(--gold);">About Us</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">Our Services <i class="fa fa-chevron-down fa-xs"></i></a>
+          <div class="dropdown-menu">
+            <a href="beard-care.html">Beard Care</a>
+            <a href="hair-care.html">Hair Care</a>
+            <a href="manicure-pedicure.html">Manicure / Pedicure</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact Us</a>
+        <a href="careers.html">Careers</a>
+        <a href="team.html">Team</a>
+        <a href="blog.html">Blog</a>
+        <a href="products.html">Products</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="#">Our Services</a>
+      <a href="beard-care.html">Beard Care</a>
+      <a href="hair-care.html">Hair Care</a>
+      <a href="manicure-pedicure.html">Manicure / Pedicure</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="team.html">Team</a>
+      <a href="blog.html">Blog</a>
+      <a href="products.html">Products</a>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="page-banner">
+    <p class="page-banner-label">Who We Are</p>
+    <h1>The Story Behind<br />Apex Barbers</h1>
+  </section>
+
+  <!-- Our Story -->
+  <section class="about-story">
+    <div class="about-story-inner">
+      <div class="about-story-text">
+        <p class="section-label">Our Story</p>
+        <h2>More Than a Haircut —<br />A Craft.</h2>
+        <p>
+          Apex Barbers was born from a simple belief: every man deserves to walk out feeling
+          his absolute best. We opened our doors in Dubai with one chair, one barber, and
+          an uncompromising commitment to precision.
+        </p>
+        <p>
+          Today, our team of master barbers brings years of experience and a genuine passion
+          for the craft to every appointment. From classic fades to executive cuts and
+          signature beard sculpts, each service is performed with the same attention to
+          detail that defined us from day one.
+        </p>
+        <p>
+          We don't just follow trends — we set them. Our shop is a space where craftsmanship
+          meets culture, and where every client leaves sharper than when they arrived.
+        </p>
+      </div>
+
+      <div class="about-story-image">
+        <img src="media/vecteezy_hairdressers-cut-their-clients-in-barbershop-advertising_5121036.jpg" alt="Barbers at work" style="width:120%;height:120%;object-fit:cover;display:block;position:relative;left:10%;" />
+        <div class="image-accent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="about-values">
+    <div class="about-values-inner">
+      <div class="about-values-header">
+        <p class="section-label">What Drives Us</p>
+        <h2>Our Values</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-cut"></i></div>
+          <h3>Precision</h3>
+          <p>Every line, every fade, every detail is executed with intention. We hold ourselves to a standard that goes beyond the ordinary.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>Professionalism</h3>
+          <p>From the moment you walk in to the moment you leave, expect a seamless, respectful, and premium experience — every single time.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-heart"></i></div>
+          <h3>Passion</h3>
+          <p>Barbering is not just a job here — it is an art form. Our team loves what they do, and it shows in every cut we deliver.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed: BOOK NOW side tab -->
+  <a href="#" class="fixed-book-tab">BOOK NOW</a>
+
+  <!-- Fixed: CALL NOW bottom bar -->
+  <div class="fixed-call-bar" id="callBar">
+    <i class="fas fa-phone"></i>
+    <span>CALL NOW !</span>
+    <div class="call-popup" id="callPopup">
+      <a href="tel:+97140000000"><i class="fas fa-phone"></i> +971 400 000 00</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-text">THE BLADE <span class="logo-accent">ROOM</span></span>
+        </a>
+        <p class="footer-tagline">Redefining grooming, one cut at a time.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Location &amp; Contact</h4>
+        <p>Downtown Tower, Sheikh Zayed Rd<br />Dubai, UAE</p>
+        <a href="tel:+97143404442" class="footer-phone">+971 400 000 00</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Hours</h4>
+        <ul class="hours-list">
+          <li><span>Monday – Saturday</span><span>9:00 AM – 10:00 PM</span></li>
+          <li><span>Sunday</span><span>10:00 AM – 10:00 PM</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="#">Who we are</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <h4 class="footer-col-title">Newsletter</h4>
+        <p>Stay updated with our latest offers and news.</p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email" placeholder="Your email address" />
+          <button type="submit">subscribe &rarr;</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; The Blade Room 2025. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="booking-overlay" id="bookingOverlay">
+    <div class="booking-modal">
+      <button class="booking-close" id="bookingClose"><i class="fas fa-times"></i></button>
+      <h2 class="booking-title">Book an Appointment</h2>
+      <p class="booking-sub">Select a date and time for your visit</p>
+      <div class="booking-body">
+        <div class="booking-calendar-wrap">
+          <input id="bookingDateInput" class="booking-date-input" placeholder="Pick a date" readonly />
+        </div>
+        <div class="booking-times" id="bookingTimes">
+          <p class="times-label">Available Times</p>
+          <div class="times-grid">
+            <button class="time-slot" data-time="09:00">9:00 AM</button>
+            <button class="time-slot" data-time="10:00">10:00 AM</button>
+            <button class="time-slot" data-time="11:00">11:00 AM</button>
+            <button class="time-slot" data-time="12:00">12:00 PM</button>
+            <button class="time-slot" data-time="13:00">1:00 PM</button>
+            <button class="time-slot" data-time="14:00">2:00 PM</button>
+            <button class="time-slot" data-time="15:00">3:00 PM</button>
+            <button class="time-slot" data-time="16:00">4:00 PM</button>
+            <button class="time-slot" data-time="17:00">5:00 PM</button>
+            <button class="time-slot" data-time="18:00">6:00 PM</button>
+          </div>
+        </div>
+      </div>
+      <button class="booking-confirm" id="bookingConfirm">Confirm Booking</button>
+    </div>
+  </div>
+
+  <!-- Service Selection Modal -->
+  <div class="service-overlay" id="serviceOverlay">
+    <div class="service-modal">
+      <button class="booking-close" id="serviceClose"><i class="fas fa-times"></i></button>
+
+      <!-- Step 1: Service selection -->
+      <div id="svcView">
+        <h2 class="booking-title">Select Services</h2>
+        <p class="booking-sub">Choose your services and quantities</p>
+
+        <div class="svc-tabs">
+          <button class="svc-tab active" data-tab="hair">Hair</button>
+          <button class="svc-tab" data-tab="beard">Beard</button>
+          <button class="svc-tab" data-tab="nails">Manicure & Pedicure</button>
+        </div>
+
+        <div class="svc-list" id="tab-hair">
+          <div class="svc-item" data-price="70"><div class="svc-info"><span class="svc-name">Classic Haircut</span><span class="svc-price">AED 70</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="90"><div class="svc-info"><span class="svc-name">Skin Fade</span><span class="svc-price">AED 90</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="85"><div class="svc-info"><span class="svc-name">Taper Fade</span><span class="svc-price">AED 85</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="100"><div class="svc-info"><span class="svc-name">Executive Cut</span><span class="svc-price">AED 100</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="55"><div class="svc-info"><span class="svc-name">Kids Haircut</span><span class="svc-price">AED 55</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="140"><div class="svc-info"><span class="svc-name">Hair & Beard Combo</span><span class="svc-price">AED 140</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+        </div>
+
+        <div class="svc-list" id="tab-beard" style="display:none">
+          <div class="svc-item" data-price="60"><div class="svc-info"><span class="svc-name">Beard Trim & Shape</span><span class="svc-price">AED 60</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="90"><div class="svc-info"><span class="svc-name">Full Beard Sculpt</span><span class="svc-price">AED 90</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="80"><div class="svc-info"><span class="svc-name">Classic Hot Towel Shave</span><span class="svc-price">AED 80</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="120"><div class="svc-info"><span class="svc-name">Beard Colour</span><span class="svc-price">AED 120</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="50"><div class="svc-info"><span class="svc-name">Line Up & Edge</span><span class="svc-price">AED 50</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="70"><div class="svc-info"><span class="svc-name">Beard Treatment & Oil</span><span class="svc-price">AED 70</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+        </div>
+
+        <div class="svc-list" id="tab-nails" style="display:none">
+          <div class="svc-item" data-price="65"><div class="svc-info"><span class="svc-name">Classic Manicure</span><span class="svc-price">AED 65</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="75"><div class="svc-info"><span class="svc-name">Classic Pedicure</span><span class="svc-price">AED 75</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="120"><div class="svc-info"><span class="svc-name">Manicure & Pedicure Combo</span><span class="svc-price">AED 120</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="45"><div class="svc-info"><span class="svc-name">Nail Buff & Polish</span><span class="svc-price">AED 45</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="40"><div class="svc-info"><span class="svc-name">Cuticle Treatment</span><span class="svc-price">AED 40</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+          <div class="svc-item" data-price="90"><div class="svc-info"><span class="svc-name">Foot Scrub & Massage</span><span class="svc-price">AED 90</span></div><div class="svc-qty"><button class="qty-btn qty-minus">−</button><span class="qty-val">0</span><button class="qty-btn qty-plus">+</button></div></div>
+        </div>
+
+        <div class="svc-summary">
+          <span>Total</span>
+          <span id="svcTotal">AED 0</span>
+        </div>
+
+        <button class="booking-confirm" id="proceedPayment">Proceed to Payment</button>
+      </div>
+
+      <!-- Step 2: Payment -->
+      <div id="paymentView" style="display:none">
+        <button class="pay-back" id="payBack">&#8592; Back to Services</button>
+
+        <div class="pay-order-box">
+          <p class="pay-section-label">YOUR ORDER</p>
+          <div class="pay-order-head">
+            <span>PRODUCT</span><span>SUBTOTAL</span>
+          </div>
+          <div id="payOrderItems"></div>
+          <div class="pay-order-row pay-order-subtotal">
+            <span>Subtotal</span><span id="paySubtotal">AED 0</span>
+          </div>
+          <div class="pay-order-row pay-order-total">
+            <span>ORDER TOTAL</span><strong id="payTotalDisplay">AED 0</strong>
+          </div>
+        </div>
+
+        <p class="pay-section-label">PAYMENT METHOD</p>
+        <div class="pay-choice-grid">
+                    <label class="pay-choice-card" id="choiceOnline">
+            <input type="radio" name="payMethod" value="online">
+            <i class="fas fa-credit-card"></i>
+            <span class="pay-choice-title">Pay Online</span>
+            <span class="pay-choice-sub">Cards, Apple Pay, Google Pay</span>
+          </label><label class="pay-choice-card active" id="choiceArrival">
+            <input type="radio" name="payMethod" value="arrival" checked>
+            <i class="fas fa-store"></i>
+            <span class="pay-choice-title">Pay on Arrival</span>
+            <span class="pay-choice-sub">Cash or card at the shop</span>
+          </label>
+        </div>
+            <div id="payment-element"></div>
+            <div id="payment-error" class="pay-error" style="display:none"></div>
+          </div>
+          <button class="btn-place-order" id="placeOrder">PLACE ORDER — <span id="payBtnTotal">AED 0</span> &#8250;</button>
+        </div>
+        <!-- Online payment section -->
+        <div id="onlinePaySection" style="display:none">
+          <div class="pay-method-box">
+            <div class="pay-stripe-label">
+              <div class="pay-stripe-dot"></div>
+              <div>
+                <strong>Stripe &#8212; Cards &amp; Wallets</strong>
+                <span class="pay-stripe-sub">Secure checkout via Stripe.</span>
+              </div>
+            </div>
+            <div id="payment-element"></div>
+            <div id="payment-error" class="pay-error" style="display:none"></div>
+          </div>
+          <button class="btn-place-order" id="placeOrder">PLACE ORDER &#8212; <span id="payBtnTotal">AED 0</span> &#8250;</button>
+        </div>
+
+
+        <!-- Pay on arrival section -->
+        <div id="arrivalPaySection">
+          <div class="pay-arrival-note">
+            <i class="fas fa-check-circle"></i>
+            <p>No payment required now. Pay by cash or card when you arrive at the shop.</p>
+          </div>
+          <button class="btn-place-order" id="confirmArrival">CONFIRM BOOKING &#8250;</button>
+        </div>
+
+        <p class="pay-notice">Your personal data will be used to process your booking and appointment.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHATBOT BUTTON -->
+  <div class="chatbot-btn" title="Chat with us">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <circle cx="9" cy="10" r="1" fill="#fff" stroke="none"/>
+          <circle cx="12" cy="10" r="1" fill="#fff" stroke="none"/>
+          <circle cx="15" cy="10" r="1" fill="#fff" stroke="none"/>
+      </svg>
+  </div>
+
+  <!-- Booking confirmation toast -->
+  <div class="booking-toast" id="bookingToast">
+    <i class="fas fa-check-circle"></i>
+    <div>
+      <strong>Booking Confirmed!</strong>
+      <span id="toastDetails"></span>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="script.js"></script>
+</body>
+</html>
