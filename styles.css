@@ -360,7 +360,7 @@ a { text-decoration: none; color: inherit; }
 .nav-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4rem 0 5rem;
+  padding: 0 3rem 0 8rem;
   height: 85px;
   display: flex;
   align-items: center;
@@ -385,18 +385,18 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .nav-links a,
 .dropdown-toggle {
-  font-size: 0.78rem;
+  font-size: 0.87rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
   color: rgba(245,239,224,0.75);
-  padding: 0.4rem 0.65rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 4px;
   transition: color 0.2s, background 0.2s;
   cursor: pointer;
